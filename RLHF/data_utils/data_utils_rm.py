@@ -68,7 +68,7 @@ def preprocess_for_reward_modeling(
 
     def _get_numeric_preference(example: dict):
         # 1 vs 2 is stored in table, but for modeling we use 0 vs 1; remap here.
-        return {1: 0, 2: 1}[example["preference"]]
+        return {1: 0, 2: 1}[example["auto_preference"]]
 
     choice = torch.tensor(
         [[_get_numeric_preference(dict_data)] for dict_data in list_dict_data]
